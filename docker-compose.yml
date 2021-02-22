@@ -1,0 +1,37 @@
+version: "3.4"
+services:
+ rabbitmq:
+  image: rabbitmq:management
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+
+ registry-service:
+  image: registry-service
+  ports:
+   - "8762:8762"
+
+ user-service:
+  image: user-service
+  ports:
+   - "8091:8091"
+
+ order-service:
+  image: order-service
+  ports:
+   - "8081:8081"
+
+ notification-service:
+  image: notification-service
+  ports:
+   - "8071:8071"
+
+ delivery-service:
+  image: delivery-service
+  ports:
+   - "8061:8061"
+
+ auth-service:
+  image: auth-service
+  ports:
+   - "8051:8051"
