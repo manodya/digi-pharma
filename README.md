@@ -11,6 +11,7 @@ Registry-service
 Auth-service / API gateway
 
  Deploying Application
+ 
 Download the code from below GitHub location
 https://github.com/manodya/digi-pharma.git
 
