@@ -3,6 +3,7 @@ package com.abc.delivery.dto;
 import java.io.Serializable;
 
 public class DeliveryRequestMessage implements Serializable {
+    private static final long serialVersionUID = 129348918L;
     String orderId;
     String customerName;
     String deliveryLocation;

@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @ApiModel
 public class PharmacyUserCreationRequest implements Serializable {
+    private static final long serialVersionUID = 129346938L;
+
     @ApiModelProperty(name = "User Name", required = true)
     @NotBlank(message = "User Name is mandatory.")
     private String userName;

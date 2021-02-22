@@ -9,6 +9,7 @@ import java.io.Serializable;
 @ApiModel
 public class PharmacyRegistrationRequest implements Serializable {
 
+    private static final long serialVersionUID = 129346938L;
     @ApiModelProperty(name = "Business Name", required = true)
     @NotBlank(message = "Name is mandatory.")
     private String name;

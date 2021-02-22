@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @ApiModel
 public class AccountActivationRequest implements Serializable {
+
+    private static final long serialVersionUID = 129348338L;
     @ApiModelProperty(name = "Activation Code", required = true)
     @NotBlank(message = "Activation Code is mandatory.")
     private String activationCode;

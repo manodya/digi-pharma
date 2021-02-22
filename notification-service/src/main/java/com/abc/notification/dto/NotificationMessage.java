@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /*@JsonIgnoreProperties(ignoreUnknown = true)*/
 public class NotificationMessage implements Serializable {
+
+    private static final long serialVersionUID = 129348928L;
     private String userId;
     private String toEmail;
     private String messageSubject;

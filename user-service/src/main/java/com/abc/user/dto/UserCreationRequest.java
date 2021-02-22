@@ -9,6 +9,8 @@ import java.io.Serializable;
 
 @ApiModel
 public class UserCreationRequest implements Serializable {
+    private static final long serialVersionUID = 129348638L;
+
     @ApiModelProperty(name = "Customer Email", required = true)
     @NotBlank(message = "Email is mandatory.")
     private String email;

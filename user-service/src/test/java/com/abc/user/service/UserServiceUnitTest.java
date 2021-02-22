@@ -8,11 +8,23 @@ import com.abc.user.dto.UserCreationResponse;
 import com.abc.user.entity.User;
 import com.abc.user.respository.UserRepository;
 import com.abc.user.util.AccountStatus;
+import com.abc.user.util.AccountVerificationUtils;
+import com.abc.user.util.notification.NotificationBuilder;
+import com.abc.user.util.notification.NotificationSource;
+import org.apache.qpid.server.Broker;
+import org.apache.qpid.server.BrokerOptions;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.integration.support.MessageBuilder;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.GenericMessage;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,6 +32,7 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = UserServiceApplication.class)
@@ -34,14 +47,20 @@ public class UserServiceUnitTest {
     @Autowired
     UserRepository userRepository;
 
+    @Mock
+    NotificationSource notificationSource;
+
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
     @Test
     @Order(1)
     @Rollback(false)
     public void testCreateUser() throws Exception {
+
         UserCreationRequest userCreationRequest = getUsr();
         UserCreationResponse response = userService.createUser(userCreationRequest);
-        TestTransaction.flagForCommit();
-        TestTransaction.end();
         assertEquals(userRepository.findById(Long.parseLong(response.getUserId())).get().getEmail(), userCreationRequest.getEmail());
         response = userService.createUser(userCreationRequest);
         assertFalse(response.getStatus());

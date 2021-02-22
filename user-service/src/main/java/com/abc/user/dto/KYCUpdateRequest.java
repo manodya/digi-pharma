@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @ApiModel
 public class KYCUpdateRequest implements Serializable {
-
+    private static final long serialVersionUID = 129345938L;
 
     @ApiModelProperty(name = "Address", required = true)
     @NotBlank(message = "Address is mandatory.")

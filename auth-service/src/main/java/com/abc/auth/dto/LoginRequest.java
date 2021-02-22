@@ -3,6 +3,7 @@ package com.abc.auth.dto;
 import java.io.Serializable;
 
 public class LoginRequest  implements Serializable {
+    private static final long serialVersionUID = 129348938L;
     private String username;
     private String password;
 

@@ -1,6 +1,8 @@
 package com.abc.order.dto;
 
 public class OrderCreationResponse  extends CommonOrderResponse{
+
+    private static final long serialVersionUID = 129348958L;
     private String orderId;
 
     public String getOrderId() {

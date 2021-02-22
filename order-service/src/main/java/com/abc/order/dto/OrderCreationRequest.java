@@ -9,15 +9,12 @@ import javax.validation.constraints.NotBlank;
 
 @ApiModel
 public class OrderCreationRequest {
+    private static final long serialVersionUID = 179348938L;
     @ApiModelProperty(name = "User ID", required = true)
-  /*  @NotBlank(message = "UserId is mandatory.")*/
     private String userId;
     @ApiModelProperty(name = "Pharmacy ID", required = true)
-   /* @NotBlank(message = "PharmacyId is mandatory.")*/
     private String pharmacyId;
 
-  /*  @ApiModelProperty(name = "Prescription", required = true)
-    private MultipartFile prescription;*/
 
     public String getUserId() {
         return userId;

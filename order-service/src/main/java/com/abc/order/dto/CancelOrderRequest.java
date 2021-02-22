@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @ApiModel
 public class CancelOrderRequest implements Serializable {
+    private static final long serialVersionUID = 119348938L;
 
 
     private String remarks;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class CommonOrderResponse implements Serializable {
+    private static final long serialVersionUID = 149348938L;
     private Boolean status = true;
     private List<String> failReasons;
 
